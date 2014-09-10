@@ -5,6 +5,25 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+$db_option=array(
+				/*my personel computer*/
+				'linden'=>array(
+					'connectionString' => 'mysql:host=localhost;dbname=question_db',
+					'emulatePrepare' => true,
+					'username' => 'root',
+					'password' => '12548442',
+					'charset' => 'utf8',
+				),
+				'ulgen'=>array(
+			        'connectionString' => 'mysql:host=lindneo.com;port=3306;dbname=question_db',
+			        'emulatePrepare' => true,
+			        'username' => 'root',
+			        'password' => '12548442',
+			        'charset' => 'utf8',
+		        )
+		    );
+
+
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
@@ -64,13 +83,7 @@ return array(
 			'password' => '12548442',
 			'charset' => 'utf8',
 		),*/
-		'db'=>array(
-	        'connectionString' => 'mysql:host=lindneo.com;port=3306;dbname=question_db',
-	        'emulatePrepare' => true,
-	        'username' => 'root',
-	        'password' => '12548442',
-	        'charset' => 'utf8',
-        ),
+		'db'=>$db_option[gethostname()],
 
 		
 		'errorHandler'=>array(
