@@ -64,12 +64,19 @@ class DeleteController extends Controller
 	}
 	protected function beforeAction()
     {
-        if(Yii::app()->user->checkAccess(ucfirst($this->getId()) . ucfirst($this->getAction()->getId())))
-        {
-            return true;
-        } else {
-        	throw new CHttpException(401,'You are not authorized to perform this operation');
-            //Yii::app()->request->redirect(Yii::app()->user->returnUrl);
-        }
+    	if(!Yii::app()->user->isGuest)
+    	{
+		        if(Yii::app()->user->checkAccess(ucfirst($this->getId()) . ucfirst($this->getAction()->getId())))
+		        {
+		            return true;
+		        } else {
+		        	throw new CHttpException(401,'You are not authorized to perform this operation');
+		            //Yii::app()->request->redirect(Yii::app()->user->returnUrl);
+		        }
+		}
+		else
+		{
+			$this->redirect(Yii::app()->createUrl('site/login'));
+		}
    }
 }
