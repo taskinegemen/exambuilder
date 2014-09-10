@@ -10536,3 +10536,15 @@ in /var/www/question/index.php (13)
 2014/09/09 15:13:11 [warning] [application] Failed to set unsafe attribute "question_id" of "Question".
 in /var/www/question/protected/controllers/CloneController.php (84)
 in /var/www/question/index.php (13)
+2014/09/10 13:42:34 [error] [exception.CHttpException.401] exception 'CHttpException' with message 'You are not authorized to perform this operation' in /var/www/question/protected/controllers/ProfileController.php:49
+Stack trace:
+#0 /var/www/question/yii-1.1.15.022a51/framework/web/CController.php(306): ProfileController->beforeAction(Object(CInlineAction))
+#1 /var/www/question/yii-1.1.15.022a51/framework/web/CController.php(286): CController->runAction(Object(CInlineAction))
+#2 /var/www/question/yii-1.1.15.022a51/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 /var/www/question/yii-1.1.15.022a51/framework/web/CWebApplication.php(282): CController->run('open')
+#4 /var/www/question/yii-1.1.15.022a51/framework/web/CWebApplication.php(141): CWebApplication->runController('profile/open')
+#5 /var/www/question/yii-1.1.15.022a51/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#6 /var/www/question/index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/question/profile/open
+---

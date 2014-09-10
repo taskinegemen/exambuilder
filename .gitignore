@@ -2,3 +2,4 @@
 *.tex
 *.log
 files/*
+protected/runtime/application.log
